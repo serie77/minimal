@@ -147,6 +147,10 @@ body {
     flex: 1;
     position: relative;
     overflow: hidden;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn::before {
