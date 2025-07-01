@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fafafa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.banner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-image {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+    transition: all 0.2s ease;
+}
+
+.banner-image:hover {
+    opacity: 0.9;
+}
+
+/* Hero Section */
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+}
+
+.hero-section {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.coin-container {
+    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+    border: 1px solid #e8e8e8;
+    border-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.04),
+        0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.coin-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    z-index: 1;
+}
+
+.coin-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.08),
+        0 4px 16px rgba(0, 0, 0, 0.04);
+    border-color: #ddd;
+}
+
+.coin-image-wrapper {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.memecoin-image {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.coin-image-wrapper:hover .memecoin-image {
+    transform: scale(1.02);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+}
+
+.coin-actions {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 280px;
+}
+
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.875rem 2rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: lowercase;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.buy-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+.buy-btn:hover {
+    background-color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.x-btn {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #e8e8e8;
+}
+
+.x-btn:hover {
+    background-color: #f8f8f8;
+    border-color: #d0d0d0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid #f0f0f0;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.footer-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #666666;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 2rem 1rem;
+    }
+    
+    .hero-section {
+        min-height: 500px;
+    }
+    
+    .coin-container {
+        padding: 2rem;
+        border-radius: 16px;
+        max-width: 100%;
+    }
+    
+    .memecoin-image {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .coin-actions {
+        flex-direction: column;
+        gap: 0.875rem;
+        max-width: 100%;
+    }
+    
+    .btn {
+        padding: 1rem 2rem;
+        width: 100%;
+    }
+    
+    .banner-container,
+    .footer-content {
+        padding: 0 1rem;
+    }
+    
+    .banner-image {
+        max-height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .coin-container {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .memecoin-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 12px;
+    }
+    
+    .coin-image-wrapper {
+        margin-bottom: 2rem;
+    }
+    
+    .banner-image {
+        max-height: 40px;
+    }
+} 
