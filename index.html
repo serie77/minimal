@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
     <header class="header">
@@ -25,7 +25,7 @@
                     <img src="memecoin.jpg" alt="memecoin" class="memecoin-image">
                 </div>
                 <div class="coin-actions">
-                    <button class="btn buy-btn">buy</button>
+                    <button class="btn buy-btn" id="buyBtn">buy</button>
                     <a href="https://x.com/username011100" target="_blank" rel="noopener noreferrer" class="btn x-btn">X</a>
                 </div>
             </div>
@@ -37,5 +37,43 @@
             <span class="footer-text">nothing</span>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('buyBtn').addEventListener('click', function() {
+            const contractAddress = 'CFJprPF8BeT1n1hBMfup1oXVeUD1NfokBucrmJu7pump';
+            
+            navigator.clipboard.writeText(contractAddress).then(function() {
+                // Show feedback to user
+                const btn = document.getElementById('buyBtn');
+                const originalText = btn.textContent;
+                btn.textContent = 'copied!';
+                btn.style.backgroundColor = '#22c55e';
+                
+                setTimeout(function() {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '#000000';
+                }, 2000);
+            }).catch(function() {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = contractAddress;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Show feedback
+                const btn = document.getElementById('buyBtn');
+                const originalText = btn.textContent;
+                btn.textContent = 'copied!';
+                btn.style.backgroundColor = '#22c55e';
+                
+                setTimeout(function() {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '#000000';
+                }, 2000);
+            });
+        });
+    </script>
 </body>
 </html> 
